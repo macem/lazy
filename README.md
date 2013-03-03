@@ -1,8 +1,6 @@
 lazy
 ====
 
-<h3>What it is:</h3>
-
 jquery and zepto plugin for lazy load image, video
 
 <h3>How it works:</h3>
