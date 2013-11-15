@@ -16,7 +16,6 @@ $.fn[name] = function (options) {
     var $all = this, $replaced, _opt = {}, _p = {};
 
     // options
-
     $.extend (_opt, def, options);
 
     $all.each (function () {
