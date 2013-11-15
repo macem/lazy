@@ -13,7 +13,10 @@ var name = 'lazy',
     };
 
 $.fn[name] = function (options) {
-    var $all = this, $replaced, _opt = {}, _p = {};
+    var $all = this, 
+        $replaced, 
+        _opt = {}, 
+        _p = {};
 
     // options
     $.extend (_opt, def, options);
@@ -23,7 +26,6 @@ $.fn[name] = function (options) {
     });
 
     // event
-
     $all.one ('load', function () {
         var options = this.options;
         
@@ -44,15 +46,14 @@ $.fn[name] = function (options) {
     });
 
     // check if element is in window view
-
     function inView (node) {
         _p.s  = (d.documentElement.scrollTop || d.body.scrollTop);
-        _p.ot = node.offsetTop; 
-        _p.ob = node.offsetHeight + _p.ot;
-        _p.wh = $(w).height();
-        _p.w  = (w.innerHeight && w.innerHeight < _p.wh) ? w.innerHeight : _p.wh;
+        _p.otop = node.offsetTop; 
+        _p.ob = node.offsetHeight + _p.otop;
+        _p.height = $(w).height();
+        _p.width  = (w.innerHeight && w.innerHeight < _p.height) ? w.innerHeight : _p.height;
         
-        return _p.ot > _p.s && _p.ot < (_p.s + _p.w) || _p.ob > _p.s && _p.ob < (_p.s + _p.w);
+        return _p.otop > _p.s && _p.otop < (_p.s + _p.width) || _p.ob > _p.s && _p.ob < (_p.s + _p.width);
     }
 
     function initialize () { 
@@ -64,7 +65,6 @@ $.fn[name] = function (options) {
     }
 
     // run
-
     initialize();
 
     $(window).scroll (initialize);
